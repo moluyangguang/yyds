@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Responsive Heartbeat with Text</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f3f3f3;
+    }
+
+    #container {
+      text-align: center;
+    }
+
+    #heartbeat {
+      font-size: 10vw;
+      color: red;
+      animation: heartbeat 1s infinite;
+    }
+
+    @keyframes heartbeat {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .animated-text {
+      font-size: 2vw;
+      animation: showText 2s forwards;
+      opacity: 0;
+      margin-top: 1vw;
+    }
+
+    @keyframes showText {
+      0% {
+        font-size: 0;
+        opacity: 0;
+      }
+      100% {
+        font-size: 4vw;
+        opacity: 1;
+      }
+    }
+
+    .red {
+      color: red;
+    }
+
+    .blue {
+      color: blue;
+    }
+
+    .green {
+      color: green;
+    }
+
+    .purple {
+      color: purple;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div id="heartbeat">♥</div>
+
+    <div>
+      <span class="animated-text red">为你</span>
+      <span class="animated-text blue">心动</span>
+      <span class="animated-text green">你实在是</span>
+      <span class="animated-text purple">鸡你太美</span>
+    </div>
+  </div>
+
+  <script>
+    window.onload = function() {
+      var containerHeight = document.getElementById("container").offsetHeight;
+      var heartbeatSize = containerHeight * 0.3;
+      var textSize = containerHeight * 0.08;
+
+      var heartbeat = document.getElementById("heartbeat");
+      heartbeat.style.fontSize = heartbeatSize + "px";
+
+      var animatedTexts = document.getElementsByClassName("animated-text");
+      for (var i = 0; i < animatedTexts.length; i++) {
+        animatedTexts[i].style.fontSize = textSize + "px";
+      }
+    };
+  </script>
+</body>
+</html>
